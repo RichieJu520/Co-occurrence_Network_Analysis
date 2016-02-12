@@ -1,4 +1,4 @@
-# Co-occurrence-network-analysis
+# Correlation-based Cooccurrence network
 
 ################## Correlation analysis ###############################
 #install.packages("vegan")
@@ -10,9 +10,6 @@ library(igraph)
 library(Hmisc)
 
 co_occurrence_network<-function(matrix,alpha,p.cutoff){
-  
-  matrix1<-matrix
-  matrix1[matrix1>0]<-1
   
   #correlation analysis based on spearman's co-efficient
   matrix.dist<-rcorr(t(matrix),type="spearman")
@@ -50,7 +47,7 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   matrix.cor3<-matrix.cor3[which(rowSums(matrix.cor3)!=1),]
   matrix.cor3<-matrix.cor3[,which(colSums(matrix.cor3)!=0)]
   
-  # generate graph using igraph
+  # generate graphs using igraph
   g1<-graph.adjacency(matrix.cor1,weight=T,mode="undirected")
   g1<-simplify(g1)
   V(g1)$label <- V(g1)$name
@@ -61,14 +58,14 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   V(g2)$label <- V(g2)$name
   V(g2)$degree <- degree(g2)
   
-  #g3<-graph.adjacency(matrix.cor3,weight=T,mode="undirected")
-  #g3<-simplify(g3)
-  #V(g3)$label <- V(g3)$name
-  #V(g3)$degree <- degree(g3)
+  g3<-graph.adjacency(matrix.cor3,weight=T,mode="undirected")
+  g3<-simplify(g3)
+  V(g3)$label <- V(g3)$name
+  V(g3)$degree <- degree(g3)
   
   # append the output into results
   result<-list()
-  #result$co_occurrence<-co_occurrence
+  
   result$matrix.cor<-matrix.cor
   result$matrix.cor.p<-matrix.cor.p
   
@@ -78,7 +75,7 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   result$matrix.cor2<-matrix.cor2
   result$graph2<-g2
   
-  #result$matrix.cor3<-matrix.cor3
-  #result$graph3<-g3
+  result$matrix.cor3<-matrix.cor3
+  result$graph3<-g3
   return(result)
 } 
