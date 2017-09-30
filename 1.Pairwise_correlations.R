@@ -1,3 +1,5 @@
+###### please cite our paper (Ju et al., 2014. Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants. Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
+
 # Correlation-based Cooccurrence network
 
 ################## Correlation analysis ###############################
@@ -24,7 +26,8 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   matrix.cor1.p<-matrix.cor.p
   matrix.cor1[which(matrix.cor1 <= alpha)]=0
   matrix.cor1[which(matrix.cor1.p>p.cutoff)]=0
-  # delete those rows and columns with sum = 0
+
+  # drop those rows and columns with sum = 0
   matrix.cor1<-matrix.cor1[which(rowSums(matrix.cor1)!=1),]
   matrix.cor1<-matrix.cor1[,which(colSums(matrix.cor1)!=0)]
   
@@ -33,8 +36,9 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   matrix.cor2.p<-matrix.cor.p
   matrix.cor2[which(matrix.cor2 > (-alpha))]=0
   matrix.cor2[which(matrix.cor2.p>p.cutoff)]=0
-  # delete those rows and columns with sum = 0
-  matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=0),]
+
+  # drop those rows and columns with sum = 0
+  matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=1),]
   matrix.cor2<-matrix.cor2[,which(colSums(matrix.cor2)!=0)]
   
   #3.Consider both positive and netagive cooccurence at given coefficient (alpha) and p-value cutoffs
@@ -42,8 +46,8 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   matrix.cor3.p<-matrix.cor.p
   matrix.cor3[which(matrix.cor3>=(-alpha) & matrix.cor3 <= alpha)]=0
   matrix.cor3[which(matrix.cor3.p>p.cutoff)]=0
-  
-  # delete those rows and columns with sum = 0
+
+  # drop those rows and columns with sum = 0
   matrix.cor3<-matrix.cor3[which(rowSums(matrix.cor3)!=1),]
   matrix.cor3<-matrix.cor3[,which(colSums(matrix.cor3)!=0)]
   
