@@ -1,8 +1,12 @@
+
+
 library(igraph)
 
-n=2194
-e=44680
+#set the size of random network
+n=2194   #number of nodes
+e=44680  #number of edges
   
+#generate 1000 random networks
 for (i in 1:1000) {
   g <- erdos.renyi.game(n, e,'gnm',weight=T,mode="undirected")
   
