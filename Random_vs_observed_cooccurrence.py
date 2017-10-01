@@ -1,3 +1,7 @@
+###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial 
+###### assembly in activated sludge of globally distributed wastewater treatment plants.
+###### Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
+
 print 'This script is written for adding attribute to each NODE in GML files (readable by Gehpi)'
 print 'This script also calculate the random and observed incidences of co-occurrence between differnt types of nodes!'
 print 'The map file is a tab-delimited file with node ID (col 1) and type of node (col 2)
