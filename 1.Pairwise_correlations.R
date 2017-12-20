@@ -1,7 +1,4 @@
-###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial 
-###### assembly in activated sludge of globally distributed wastewater treatment plants.
-###### Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
-# Correlation-based Cooccurrence network
+###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants. Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
 
 ################## Correlation analysis ###############################
 #install.packages("vegan")
@@ -33,14 +30,14 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   matrix.cor1<-matrix.cor1[,which(colSums(matrix.cor1)!=0)]
   
   #2.Consider netagive cooccurence at given coefficient (-alpha) and p-value cutoffs
-  matrix.cor2<-matrix.cor
-  matrix.cor2.p<-matrix.cor.p
-  matrix.cor2[which(matrix.cor2 > (-alpha))]=0
-  matrix.cor2[which(matrix.cor2.p>p.cutoff)]=0
+  ###matrix.cor2<-matrix.cor
+  ###matrix.cor2.p<-matrix.cor.p
+  ###matrix.cor2[which(matrix.cor2 > (-alpha))]=0
+  ###matrix.cor2[which(matrix.cor2.p>p.cutoff)]=0
 
   # drop those rows and columns with sum = 0
-  matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=1),]
-  matrix.cor2<-matrix.cor2[,which(colSums(matrix.cor2)!=0)]
+  ###matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=1),]
+  ###matrix.cor2<-matrix.cor2[,which(colSums(matrix.cor2)!=0)]
   
   #3.Consider both positive and netagive cooccurence at given coefficient (alpha) and p-value cutoffs
   matrix.cor3<-matrix.cor
@@ -58,10 +55,10 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   V(g1)$label <- V(g1)$name
   V(g1)$degree <- degree(g1)
   
-  g2<-graph.adjacency(matrix.cor2,weight=T,mode="undirected")
-  g2<-simplify(g2)
-  V(g2)$label <- V(g2)$name
-  V(g2)$degree <- degree(g2)
+  ###g2<-graph.adjacency(matrix.cor2,weight=T,mode="undirected")
+  ###g2<-simplify(g2)
+  ###V(g2)$label <- V(g2)$name
+  ###V(g2)$degree <- degree(g2)
   
   g3<-graph.adjacency(matrix.cor3,weight=T,mode="undirected")
   g3<-simplify(g3)
@@ -77,8 +74,8 @@ co_occurrence_network<-function(matrix,alpha,p.cutoff){
   result$matrix.cor1<-matrix.cor1
   result$graph1<-g1
   
-  result$matrix.cor2<-matrix.cor2
-  result$graph2<-g2
+  ###result$matrix.cor2<-matrix.cor2
+  ###result$graph2<-g2
   
   result$matrix.cor3<-matrix.cor3
   result$graph3<-g3
