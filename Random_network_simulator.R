@@ -1,6 +1,5 @@
-###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial 
-###### assembly in activated sludge of globally distributed wastewater treatment plants.
-###### Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
+###@author: Feng Ju
+###@email: richieju520@gmail.com
 
 library(igraph)
 
