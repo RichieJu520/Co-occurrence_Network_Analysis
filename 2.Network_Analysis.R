@@ -1,6 +1,4 @@
-###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial 
-###### assembly in activated sludge of globally distributed wastewater treatment plants.
-###### Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
+###### Reference: Ju et al., 2014. Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants. Environ Microbiol. 2014 Aug;16(8):2421-32) if you use this script.
 
 # Co-occurrence-network-analysis
 ################## OTU filtering, network generation, topological analysis and export OTU table ###############################
@@ -10,20 +8,20 @@ library(Hmisc)
 Abu=read.table('NW.xls',header=T)
 Abu<-as.matrix(Abu)
 
-#1. Filtering OTUs by occurrence frequency (i.e.,number of samples an OTU is deemed as Present)
+###1. Filtering OTUs by occurrence frequency (i.e.,number of samples an OTU is Present)
 table<-Abu
 table[table>0]<-1
 table.generalist<-Abu[which(rowSums(table)>=12),]
 Abu<-table.generalist
 
-#2. Creating gml files of network (to be visulized in Gephi or Cytoscape)
+###2. Creating gml files of network (to be visulized in Gephi or Cytoscape)
 pattern<-co_occurrence_network(Abu,0.6,0.01)
 
 write.graph(pattern$graph1,'Pos0.6-NW.gml',format='gml')
 write.graph(pattern$graph2,'Neg0.6-NW.gml',format='gml')
 #write.graph(pattern$graph3,'PosNeg0.6-NW.gml',format='gml')
 
-#3. Calculating network topological properties
+###3. Calculating network topological properties
 g<-pattern$graph1
 c <- cluster_walktrap(g)
 # Global toplogical features
