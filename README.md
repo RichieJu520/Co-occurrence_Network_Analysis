@@ -6,7 +6,8 @@ Note: a minimum number of 20 to 25 samples is suggested for achieving sufficient
 
 Functions
 
-1.Pairwise_correlations.R \n
+1.Pairwise_correlations.R
+
 This scrpit defines the function "co_occurrence_network" and proceeds in three major steps:
 a) calculates all pairwise Spearman's correlations between abundance of microbial entities (e.g., OTUs, gene, transcripts).
 b) filtrate the correlations by user defined cutoffs for coefficient (alpha) and FDR-adjusted P-value (p.cutoff)
