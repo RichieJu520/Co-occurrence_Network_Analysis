@@ -5,8 +5,8 @@
 
 """
 
-print 'This script is written for adding attribute to each NODE in GML files (readable by Gehpi)'
-print 'This script also calculate the random and observed incidences of co-occurrence between differnt types of nodes!'
+print 'This script is written for adding attribute to each NODE in GML files before imported into Gehpi'
+print 'This script also calculate the random and observed incidences of co-occurrence between differnt types of network nodes!'
 print 'The map file is a tab-delimited file with node ID (col 1) and type of node (col 2)
 print 'The gml file is the gml-format network file generated from the R scripts'
 
