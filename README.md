@@ -21,7 +21,6 @@ b) Generatte gml files of co-occurrence network, which can be visulized in Gephi
 c) Calculating network topological properties, such as number of edges (e), number of nodes (v), clustering coefficient (cc), short path length (spl), modularity (md),network diameter (nd), graph.densit (GD), etc. These properties can be further used to explore the 'small-world' properties in the observed co-ocurrence network, as shown in the two references (see the end of this file).
 
 3. Random_vs_observed_cooccurrence.py
-
 This script uses a map file and a gml file as input to calculated the random and observed incidences of co-occurrence patterns between microbial entities. The random incidence is calculated by considering frequency (number) of each type of entities and assuming random connections between any two nodes. The observed incidence is calculted by observed number of edges (connections) dividied by the total number of edges in a co-occurrence network. Details on the calculation methods for random vs. observed incidences of co-occurrence can be found in the methods of Ju et al., The ISME Journal (2015) 9, 683–695 (2015)
 
 The map file is a tab-delimited file with node ID (col 1, e.g., OTU name/ID) and type of node (col 2, e.g., genus/family names of each node).
@@ -36,5 +35,3 @@ References:
 1. Ju F, Xia Y, Guo F, Wang ZP, Zhang T. 2014. Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants. Environmental Microbiology. 16(8):2421-2432
 2. Ju F, Zhang T. 2015. Bacterial assembly and temporal dynamics in activated sludge of a full-scale municipal wastewater treatment plant. The ISME Journal. 9: 683-695 
 3. Hu AY, Ju F, Hou LY, Li JW, Yang XY, Wang HJ, Mulla SI, Sun Q, Bürgmann H, Yu CP. 2017. Strong impact of anthropogenic contamination on the co-occurrence patterns of a riverine microbial community. Environmental Microbiology (2017) 19(12), 4993–500
-
-
