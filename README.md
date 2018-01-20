@@ -1,5 +1,5 @@
 # Co-occurrence network analysis
-This folder contains R and python scripts for correlation-based network analysis, starting from an abundance table of microbial entities (e.g., OTUs, genus and genes). The abundance table is a tab-delimited text file in which each row represents a microbial entity and each column represents a sampling point.
+This folder contains R and python scripts for correlation-based network analysis, starting from an abundance table of microbial entities (e.g., OTUs, genus and genes). The abundance table is a tab-delimited text file in which each row represents a microbial entity and each column represents a sampling point (see the example folder).
 
 Note: a minimum number of 20 to 25 samples is suggested for achieving sufficient specificity of co-occurrence networks (reference: doi: 10.3389/fmicb.2014.00219)
 
@@ -21,6 +21,7 @@ b) Generatte gml files of co-occurrence network, which can be visulized in Gephi
 c) Calculating network topological properties, such as number of edges (e), number of nodes (v), clustering coefficient (cc), short path length (spl), modularity (md),network diameter (nd), graph.densit (GD), etc. These properties can be further used to explore the 'small-world' properties in the observed co-ocurrence network, as shown in the two references (see the end of this file).
 
 3. Random_vs_observed_cooccurrence.py
+
 This script uses a map file and a gml file as input to calculated the random and observed incidences of co-occurrence patterns between microbial entities. The random incidence is calculated by considering frequency (number) of each type of entities and assuming random connections between any two nodes. The observed incidence is calculted by observed number of edges (connections) dividied by the total number of edges in a co-occurrence network. Details on the calculation methods for random vs. observed incidences of co-occurrence can be found in the methods of Ju et al., The ISME Journal (2015) 9, 683–695 (2015)
 
 The map file is a tab-delimited file with node ID (col 1, e.g., OTU name/ID) and type of node (col 2, e.g., genus/family names of each node).
