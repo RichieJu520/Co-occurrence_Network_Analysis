@@ -6,7 +6,7 @@
 library(igraph)
 library(Hmisc)
 
-Abu=read.table('NW.xls',header=T)
+Abu=read.table('NW.txt',header=T)
 Abu<-as.matrix(Abu)
 
 ###1. Filtering OTUs by occurrence frequency (i.e.,number of samples an OTU is Present)
@@ -16,11 +16,11 @@ table.generalist<-Abu[which(rowSums(table)>=12),]
 Abu<-table.generalist
 
 ###2. Creating gml files of network (to be visulized in Gephi or Cytoscape)
-pattern<-co_occurrence_network(Abu,0.6,0.01)
+pattern<-co_occurrence_network(Abu,0.6,0.01)  ## cutoffs for correlation coefficient and P-value
 
-write.graph(pattern$graph1,'Pos0.6-NW.gml',format='gml')
-write.graph(pattern$graph2,'Neg0.6-NW.gml',format='gml')
-#write.graph(pattern$graph3,'PosNeg0.6-NW.gml',format='gml')
+write.graph(pattern$graph1,'Pos0.6-NW.gml',format='gml')    #network file for positive association
+#write.graph(pattern$graph2,'Neg0.6-NW.gml',format='gml')   #network file for negative association (if any)
+write.graph(pattern$graph3,'PosNeg0.6-NW.gml',format='gml') #network file for all association
 
 ###3. Calculating network topological properties
 g<-pattern$graph1
@@ -29,7 +29,7 @@ c <- cluster_walktrap(g)
 modularity(c)
 md <- modularity(g, membership(c), weights = NULL)
 cc <- transitivity(g, vids = NULL,
-             weights = NULL)
+                   weights = NULL)
 spl <- average.path.length(g, directed=FALSE, unconnected=TRUE)
 gd  <- graph.density(g, loops=FALSE)
 nd  <- diameter(g, directed = FALSE, unconnected = TRUE, weights = NULL)
@@ -44,12 +44,12 @@ write.csv(global.topology, file="Pos0.6-NW-global.topology.csv")
 
 # Node toplogical features
 betweenness.centrality <- betweenness(g, v=V(g), 
-                                    directed = FALSE, weights = NULL,
-                                    nobigint = TRUE, normalized = FALSE)
+                                      directed = FALSE, weights = NULL,
+                                      nobigint = TRUE, normalized = FALSE)
 closeness.centrality <- closeness(g, vids = V(g),
-                                weights = NULL, normalized = FALSE)
+                                  weights = NULL, normalized = FALSE)
 node.transitivity <- transitivity(g, type = c("local"), vids = NULL,
-             weights = NULL)
+                                  weights = NULL)
 
 node.topology <- data.frame(node.degree, betweenness.centrality, closeness.centrality, node.transitivity)
 write.csv(node.topology, file="Pos0.6-NW-node.topology.csv")
