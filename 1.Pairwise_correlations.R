@@ -1,7 +1,7 @@
 ###@author Feng Ju
 ###@email richieju520@gmail.com
 
-################## Correlation analysis ###############################
+################## Correlation-based network analysis ###############################
 #install.packages("vegan")
 #install.packages("igraph")
 #install.packages("Hmisc")
