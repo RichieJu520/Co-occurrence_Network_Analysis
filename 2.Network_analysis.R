@@ -54,19 +54,19 @@ node.transitivity <- transitivity(g, type = c("local"), vids = NULL,
 node.topology <- data.frame(node.degree, betweenness.centrality, closeness.centrality, node.transitivity)
 write.csv(node.topology, file="Pos0.6-NW-node.topology.csv")
 
-# Ggploting node degreee distribution in a log-log plot
+# Ploting node degreee distribution in a log-log plot
 degree.df <- data.frame(table(degree=factor(node.degree, levels=seq_len(max(node.degree)))))
 degree.df$degree <- as.numeric(as.character(degree.df$degree))
 
 #4. Creating an abundance table for OTUs present in the positive and negative network
 my.list1 <- row.names(pattern$matrix.cor1)
-my.list2 <- row.names(pattern$matrix.cor2)
+###my.list2 <- row.names(pattern$matrix.cor2)
 
 logical1 <- row.names(Abu)  %in% my.list1
-logical2 <- row.names(Abu)  %in% my.list2
+###logical2 <- row.names(Abu)  %in% my.list2
 
 tab.subset1 <- subset(Abu,logical1)
-tab.subset2 <- subset(Abu,logical2)
+###tab.subset2 <- subset(Abu,logical2)
 
 write.table(tab.subset1,'Pos0.6-NW.txt',sep="\t")
-write.table(tab.subset2,'Neg0.6-NW.txt',sep="\t")
+###write.table(tab.subset2,'Neg0.6-NW.txt',sep="\t")
