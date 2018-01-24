@@ -70,7 +70,6 @@ co_occurrence_network<-function(matrix,cor.cutoff,p.cutoff){
   
   # append the output into results
   result<-list()
-  #result$co_occurrence<-co_occurrence
   result$matrix.cor<-matrix.cor
   result$matrix.cor.p<-matrix.cor.p
   
