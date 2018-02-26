@@ -1,6 +1,8 @@
 ###@author Feng Ju
 ###@email richieju520@gmail.com
-###@cite Ju F, Xia Y, Guo F, Wang ZP, Zhang T. 2014. Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants. Environmental Microbiology. 16(8):2421-2432
+###@cite Ju F, Xia Y, Guo F, Wang ZP, Zhang T. 2014. 
+###@Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants.
+###@Environmental Microbiology. 16(8):2421-2432
 
 ################## Correlation-based network analysis ###############################
 #install.packages("vegan")
