@@ -6,12 +6,11 @@ The script was written and tested in python 2.7
 ###@cite Ju F, Xia Y, Guo F, Wang ZP, Zhang T. 2014. 
 ###@Taxonomic relatedness shapes bacterial assembly in activated sludge of globally distributed wastewater treatment plants.
 ###@Environmental Microbiology. 16(8):2421-2432
-
 """
 
 print 'This script is written for adding attribute to each NODE in GML files before imported into Gehpi'
 print 'This script also calculate the random and observed incidences of co-occurrence between differnt types of network nodes!'
-print 'The map file is a tab-delimited file with node ID (col 1) and type of node (col 2)
+print 'The map file is a tab-delimited file with node ID (col 1) and type of node (col 2)'
 print 'The gml file is the gml-format network file generated from the R scripts'
 
 while True:
@@ -30,6 +29,7 @@ for line in open(P1,'r'):
         a[line.rstrip().split('\t')[0]]=line.rstrip().split('\t')[1]
     except:
         print 'Pls provdied a tab-delimited txt file!'
+        break
 
 f=open(P2.replace('.gml','') +'.modified.gml','w')
 f1=open(P1 +'.map','w')
