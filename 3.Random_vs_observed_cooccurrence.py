@@ -54,7 +54,7 @@ print 'OK, work finished!'
 f.close()
 f1.close()
 
-X1 = P1 +'.map'
+X1 = P1
 X2 = P2.replace('.gml','') +'.modified.gml'
 
 f=open(X2.replace('.gml','')+'_Observed_VS_Random.xls','w')
