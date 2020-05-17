@@ -42,7 +42,7 @@ co_occurrence_network<-function(matrix,cor.cutoff,p.cutoff){
   ###matrix.cor2[which(matrix.cor2 > (-cor.cutoff))]=0
   ###matrix.cor2[which(matrix.cor2.p>p.cutoff)]=0
   # delete those rows and columns with sum = 0
-  ###matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=0),]
+  ###matrix.cor2<-matrix.cor2[which(rowSums(matrix.cor2)!=1),]
   ###matrix.cor2<-matrix.cor2[,which(colSums(matrix.cor2)!=0)]
   
   #3.Consider both positive and netagive cooccurence at given coefficient (cor.cutoff) and p-value cutoffs
